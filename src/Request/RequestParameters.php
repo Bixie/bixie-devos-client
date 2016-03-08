@@ -16,8 +16,11 @@ class RequestParameters extends ParameterBag
 	 * @return string
 	 */
 	public function toTokenString()	{
-		$keys = $this->getSortedKeys($this->all());
-		return implode('|', $keys);
+		$pairs = [];
+		foreach ($this->getSortedKeys($this->all()) as $key) {
+			$pairs[] = $key . ':' . json_encode($this->get($key, ''), JSON_NUMERIC_CHECK);
+		}
+		return implode('|', $pairs);
 	}
 
 	/**
@@ -49,7 +52,7 @@ class RequestParameters extends ParameterBag
 				$keys[] = $key;
 			}
 			if (is_array($value)) {
-				return $this->getSortedKeys($value, $keys);
+				$keys = $this->getSortedKeys($value, $keys);
 			}
 		}
 		sort($keys);
