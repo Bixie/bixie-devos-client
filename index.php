@@ -1,24 +1,27 @@
 <?php
 
-require __DIR__ . '/vendor/autoload.php';
+include 'main.php';
 
 use Bixie\DevosClient\DevosClient;
 
-if (!file_exists(__DIR__ . '/config.json')) {
-	file_put_contents(__DIR__ . '/config.json', file_get_contents(__DIR__ . '/config.json.dist'));
-}
-
-$config = json_decode(file_get_contents(__DIR__ . '/config.json'), true);
-
+?>
+<ul>
+	<li><a href="examples/save_shipment.php">Save Shipment</a></li>
+	<li><a href="examples/register_gls.php">Register GLS</a></li>
+	<li><a href="examples/create_label.php">Create Label</a></li>
+</ul>
+<?php
 $client = new DevosClient($config, true);
 
 $response = $client->get('/api/shipment');
 
 if ($responseData = $response->getData()) {
-
-	var_dump($responseData);
+	echo '<pre>';
+	echo print_r($responseData);
+	echo '</pre>';
 
 } else {
 	echo $response->getError();
 }
 
+?>
