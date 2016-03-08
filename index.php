@@ -6,9 +6,12 @@ use Bixie\DevosClient\DevosClient;
 
 ?>
 <ul>
+	<li><a href="examples/create_shipment.php">Create Shipment</a></li>
 	<li><a href="examples/save_shipment.php">Save Shipment</a></li>
 	<li><a href="examples/register_gls.php">Register GLS</a></li>
 	<li><a href="examples/create_label.php">Create Label</a></li>
+	<li><a href="examples/create_shipment_bulk.php">Create Shipments Bulk</a></li>
+	<li><a href="examples/get_pdf_string.php">Get PDF string</a></li>
 </ul>
 <?php
 $client = new DevosClient($config, true);

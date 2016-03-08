@@ -98,6 +98,9 @@ class DevosClient {
 			if (isset($data[$match[1]])) {
 				$url = preg_replace('/(\{.*\})/', $data[$match[1]], $url);
 			}
+			if (isset($query[$match[1]])) {
+				$url = preg_replace('/(\{.*\})/', $query[$match[1]], $url);
+			}
 		}
 		$query = (new RequestParameters($query));
 		$query->add(['p' => $url]);

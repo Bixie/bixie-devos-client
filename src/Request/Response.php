@@ -28,6 +28,10 @@ class Response {
 		return $this->response->getStatusCode();
 	}
 
+	public function getResponseBody () {
+		return $this->response->getBody();
+	}
+
 	/**
 	 * @return bool|mixed
 	 */
