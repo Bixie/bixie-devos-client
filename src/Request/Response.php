@@ -10,6 +10,10 @@ class Response {
 	 * @var ResponseInterface
 	 */
 	protected $response;
+	/**
+	 * @var string
+	 */
+	protected $reasonPhrase;
 
 	/**
 	 * Response constructor.
@@ -17,6 +21,11 @@ class Response {
 	 */
 	public function __construct (ResponseInterface $response) {
 		$this->response = $response;
+		$this->reasonPhrase = $response->getReasonPhrase();
+	}
+
+	public function getStatusCode () {
+		return $this->response->getStatusCode();
 	}
 
 	/**
@@ -26,8 +35,13 @@ class Response {
 
 		try {
 
-			if ($this->response->getStatusCode() == 200) {
-				return json_decode($this->response->getBody(), true);
+			if (in_array($this->response->getStatusCode(), [200, 201])) {
+				$data = json_decode($this->response->getBody(), true);
+				if (isset($data['error'])) {
+					$this->reasonPhrase = $data['error'];
+					return false;
+				}
+				return $data;
 			}
 
 			return false;
@@ -38,7 +52,7 @@ class Response {
 	}
 
 	public function getError () {
-		return $this->response->getReasonPhrase();
+		return $this->reasonPhrase;
 	}
 
 
