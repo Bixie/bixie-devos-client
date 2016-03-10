@@ -1,6 +1,6 @@
 <?php
 
-namespace Bixie\DevosClient;
+namespace Bixie\DevosClient\Apitoken;
 
 use Bixie\DevosClient\Apitoken\Provider\ApitokenProviderInterface;
 

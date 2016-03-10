@@ -2,6 +2,7 @@
 
 namespace Bixie\DevosClient;
 
+use Bixie\DevosClient\Apitoken\Apitoken;
 use Bixie\DevosClient\Apitoken\Provider\RequestApitokenProvider;
 use Bixie\DevosClient\Request\RequestHeaders;
 use Bixie\DevosClient\Request\RequestParameters;
