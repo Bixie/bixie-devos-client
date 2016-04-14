@@ -39,17 +39,19 @@ class Response {
 
 		try {
 
-			if (in_array($this->response->getStatusCode(), [200, 201])) {
-				$data = json_decode($this->response->getBody(), true);
-				if (isset($data['error'])) {
-					$this->reasonPhrase = $data['error'];
-					return false;
-				}
-				return $data;
-			}
+			$return = false;
 
-			return false;
+			$data = json_decode($this->response->getBody(), true);
+
+			if (isset($data['error'])) {
+				$this->reasonPhrase = isset($data['message']) ? $data['message'] : $data['error'];
+			}
+			if ($data && in_array($this->response->getStatusCode(), [200, 201])) {
+				$return = $data;
+			}
+			return $return;
 		} catch (\Exception $e) {
+			$this->reasonPhrase = $e->getMessage();
 			return false;
 		}
 
