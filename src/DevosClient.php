@@ -152,6 +152,7 @@ class DevosClient {
 	 */
 	protected function getHeaders (RequestParameters $data, RequestParameters $query, $headers = []) {
 		$data->add($query->all());
+		$headers['accept'] = 'application/json';
 		$headers[Apitoken::HEADER_KEY_TOKEN] = $this->apiToken->generate($data);
 		$headers[Apitoken::HEADER_KEY_SALT] = $this->apiToken->getSalt();
 		$headers[Apitoken::HEADER_KEY_USERNAME] = $this->apiToken->getName();
