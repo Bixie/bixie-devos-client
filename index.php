@@ -12,6 +12,7 @@ use Bixie\DevosClient\DevosClient;
 	<li><a href="examples/create_label.php">Create Label</a></li>
 	<li><a href="examples/create_shipment_bulk.php">Create Shipments Bulk</a></li>
 	<li><a href="examples/get_pdf_string.php">Get PDF string</a></li>
+	<li><a href="examples/print_zpl_label.php">Print ZPL label</a></li>
 </ul>
 <?php
 $client = new DevosClient($config, true);

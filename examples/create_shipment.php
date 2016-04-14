@@ -19,6 +19,7 @@ if ($responseData = $response->getData()) {
 
 	echo sprintf('<a href="%s">Label download</a><br>', $responseData['shipment']['pdf_url']);
 	echo sprintf('<a href="%s&string=1" target="_blank">Label inline</a><br>', $responseData['shipment']['pdf_url']);
+	echo sprintf('<a href="print_zpl_label.php?domestic_parcel_number_nl=%s">Print ZPL</a><br>', $responseData['shipment']['domestic_parcel_number_nl']);
 
 	echo json_encode($responseData, JSON_PRETTY_PRINT);
 } else {
