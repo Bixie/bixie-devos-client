@@ -17,9 +17,9 @@ $response = $client->post('/api/shipment/create', ['data' => $shipment]);
 echo '<pre>Statuscode: ' . $response->getStatusCode() . '<br>';
 if ($responseData = $response->getData()) {
 
-	echo sprintf('<a href="%s">Label download</a><br>', $responseData['shipment']['pdf_url']);
-	echo sprintf('<a href="%s&string=1" target="_blank">Label inline</a><br>', $responseData['shipment']['pdf_url']);
-	echo sprintf('<a href="print_zpl_label.php?domestic_parcel_number_nl=%s">Print ZPL</a><br>', $responseData['shipment']['domestic_parcel_number_nl']);
+	echo sprintf('<a href="%s">PDF download</a><br>', $responseData['shipment']['pdf_url']);
+	echo sprintf('<a href="%s&string=1" target="_blank">PDF inline</a><br>', $responseData['shipment']['pdf_url']);
+	echo sprintf('<img width="500" src="%s" alt/>', $responseData['shipment']['png_url']);
 
 	echo json_encode($responseData, JSON_PRETTY_PRINT);
 } else {
