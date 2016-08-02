@@ -32,7 +32,7 @@
   "data": {
     "track_trace": "",
     "label_template": "gls_default",
-    "express_flag": "",
+    "express_service_flag": "",
     "inbound_country_code": "NL"
   },
   "state": 1,
