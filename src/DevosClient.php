@@ -9,9 +9,6 @@ use Bixie\DevosClient\Request\RequestParameters;
 use Bixie\DevosClient\Request\Response;
 use GuzzleHttp\Client;
 use GuzzleHttp\Cookie\CookieJar;
-use GuzzleHttp\Exception\RequestException;
-use GuzzleHttp\Psr7\Response as GuzzleResponse;
-use GuzzleHttp\Psr7\Uri;
 
 class DevosClient {
 
@@ -26,7 +23,7 @@ class DevosClient {
 	protected $cookieJar;
 
 	/**
-	 * @var Client
+	 * @var RequestApitokenProvider
 	 */
 	protected $apiToken;
 
