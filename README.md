@@ -44,4 +44,4 @@ if ($responseData = $response->getData()) {
 
 ### Example data
 
-Data for the examples can be found and changed in [examples/shipmentdata](examples/shipmentdata) and [examples/shipmentsdata](examples/shipmentsdata).
+Data for the examples can be found and changed in [examples/shipmentdata.json](examples/shipmentdata.json) and [examples/shipmentsdata.json](examples/shipmentsdata.json).

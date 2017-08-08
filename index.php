@@ -44,5 +44,3 @@ if ($responseData = $response->getData()) {
 } else {
 	echo $response->getError();
 }
-
-?>
